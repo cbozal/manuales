@@ -1,0 +1,10 @@
+site_name: Manuales técnologias de referencia
+theme: 'material'
+extra_css: [extra.css]
+
+pages:
+  - Introducción: ./index.md
+  - Docker :
+    - 'Instalación': ./docker/instalacion.md
+    - 'Imagenes': ./docker/imagenes.md
+    - 'Contenedores': ./docker/contenedores.md
