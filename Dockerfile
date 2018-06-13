@@ -1,4 +1,4 @@
 FROM registry.access.redhat.com/rhscl/nginx-112-rhel7
-COPY site /usr/share/nginx/html
+COPY site /var/www
 EXPOSE 8080
-CMD ["nginx", "-p", "/usr/share/nginx/html","-g", "daemon off;"]
+CMD ["nginx", "-p", "/var/www","-g", "daemon off;"]
