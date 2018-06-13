@@ -1,0 +1,109 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Introducci\u00f3n\n\n\nEn esta documentaci\u00f3n se pretende recoger la informaci\u00f3n detallada de los manuales y cursos que hacen referencia a las diferentes t\u00e9cnologias utilizadas en los desarrollos en el marco de un proyecto de arquitectura.",
+            "title": "Introducci\u00f3n"
+        },
+        {
+            "location": "/#introduccion",
+            "text": "En esta documentaci\u00f3n se pretende recoger la informaci\u00f3n detallada de los manuales y cursos que hacen referencia a las diferentes t\u00e9cnologias utilizadas en los desarrollos en el marco de un proyecto de arquitectura.",
+            "title": "Introducci\u00f3n"
+        },
+        {
+            "location": "/docker/instalacion/",
+            "text": "Docker\n\n\nInstalaci\u00f3n\n\n\nUbuntu\n\n\nEl paquete de instalaci\u00f3n disponible en el repositorio oficial de Ubuntu 16.04 no contiene la \u00faltima versi\u00f3n de \nDocker\n. Para obtener la \u00faltima versi\u00f3n es necesario realizar la instalaci\u00f3n desde el repositorio oficial de Docker.\n\n\nLo primero es instalar la clave GPG:\n\n\ncurl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -\n\n\n\n\nAdicionar el repositorio al \nsources.list\n del servidor:\n\n\nsudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\"\n\n\n\n\nLo siguiente ser\u00eda actualizar la base de datos de paquetes:\n\n\nsudo apt-get update\n\n\n\n\nEs necesario asegurarse de que instalaremos el paquete desde el repositorio de Docker en lugar del de Ubuntu 16.04:\n\n\napt-cache policy docker-ce\n\n\n\n\nLa respuesta ser\u00e1 algo parecida a esta:\n\n\ndocker-ce:\n  Installed: (none)\n  Candidate: 18.03.0~ce-0~ubuntu\n  Version table:\n *** 18.03.0~ce-0~ubuntu 500\n        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages\n        100 /var/lib/dpkg/status\n     17.12.1~ce-0~ubuntu 500\n        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages\n     17.12.0~ce-0~ubuntu 500\n        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages\n     17.09.1~ce-0~ubuntu 500\n        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages\n\n\n\n\nImportante notar que no hay docker instalado, pero los candidatos instables provienen del repositorio de Docker, as\u00ed que procedemos con la instalaci\u00f3n:\n\n\nsudo apt-get install -y docker-ce\n\n\n\n\nEn este punto Docker debe estar instalado, el demonio iniciado y el proceso establecido para que arranque durante el inicio del servidor. Verificamos que est\u00e1 ejecut\u00e1ndose:\n\n\nsudo systemctl status docker\n\n\n\n\nDando como resultado algo como:\n\n\n\u25cf docker.service - Docker Application Container Engine\n   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)\n   Active: active (running) since mar 2018-04-24 23:34:51 CEST; 35min ago\n     Docs: https://docs.docker.com\n Main PID: 1634 (dockerd)\n    Tasks: 27\n   Memory: 85.7M\n      CPU: 12.533s\n   CGroup: /system.slice/docker.service\n           \u251c\u25001634 /usr/bin/dockerd -H fd://\n           \u2514\u25001730 docker-containerd --config /var/run/docker/containerd/containerd.toml\n\n\n\n\nCENTOS7\n\n\nSeguimos las instrucciones indicadas desde para la instalaci\u00f3n en \nCentos7\n\n\nWINDOWS\n\n\nPara instalar desde windows seguir las instrucciones en \nwindows\n\n\nA\u00f1adir usuario al group en los linux\n\n\nPara poder ejecutar docker tenemos que a\u00f1adir nuestro usuario al grupo, esto es necesario ya que docker se ejecuta a traves de sockets y para escribir y leer el usuario que ejecute docker tiene que tener los privilegios.\nubuntu:\n\n\nsudo usermod -aG docker <user>\n\n\n\n\ncentos\n\n\nsudo chmod -aG docker <user>",
+            "title": "Instalaci\u00f3n"
+        },
+        {
+            "location": "/docker/instalacion/#docker",
+            "text": "",
+            "title": "Docker"
+        },
+        {
+            "location": "/docker/instalacion/#instalacion",
+            "text": "",
+            "title": "Instalaci\u00f3n"
+        },
+        {
+            "location": "/docker/instalacion/#ubuntu",
+            "text": "El paquete de instalaci\u00f3n disponible en el repositorio oficial de Ubuntu 16.04 no contiene la \u00faltima versi\u00f3n de  Docker . Para obtener la \u00faltima versi\u00f3n es necesario realizar la instalaci\u00f3n desde el repositorio oficial de Docker.  Lo primero es instalar la clave GPG:  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -  Adicionar el repositorio al  sources.list  del servidor:  sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\"  Lo siguiente ser\u00eda actualizar la base de datos de paquetes:  sudo apt-get update  Es necesario asegurarse de que instalaremos el paquete desde el repositorio de Docker en lugar del de Ubuntu 16.04:  apt-cache policy docker-ce  La respuesta ser\u00e1 algo parecida a esta:  docker-ce:\n  Installed: (none)\n  Candidate: 18.03.0~ce-0~ubuntu\n  Version table:\n *** 18.03.0~ce-0~ubuntu 500\n        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages\n        100 /var/lib/dpkg/status\n     17.12.1~ce-0~ubuntu 500\n        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages\n     17.12.0~ce-0~ubuntu 500\n        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages\n     17.09.1~ce-0~ubuntu 500\n        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages  Importante notar que no hay docker instalado, pero los candidatos instables provienen del repositorio de Docker, as\u00ed que procedemos con la instalaci\u00f3n:  sudo apt-get install -y docker-ce  En este punto Docker debe estar instalado, el demonio iniciado y el proceso establecido para que arranque durante el inicio del servidor. Verificamos que est\u00e1 ejecut\u00e1ndose:  sudo systemctl status docker  Dando como resultado algo como:  \u25cf docker.service - Docker Application Container Engine\n   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)\n   Active: active (running) since mar 2018-04-24 23:34:51 CEST; 35min ago\n     Docs: https://docs.docker.com\n Main PID: 1634 (dockerd)\n    Tasks: 27\n   Memory: 85.7M\n      CPU: 12.533s\n   CGroup: /system.slice/docker.service\n           \u251c\u25001634 /usr/bin/dockerd -H fd://\n           \u2514\u25001730 docker-containerd --config /var/run/docker/containerd/containerd.toml",
+            "title": "Ubuntu"
+        },
+        {
+            "location": "/docker/instalacion/#centos7",
+            "text": "Seguimos las instrucciones indicadas desde para la instalaci\u00f3n en  Centos7",
+            "title": "CENTOS7"
+        },
+        {
+            "location": "/docker/instalacion/#windows",
+            "text": "Para instalar desde windows seguir las instrucciones en  windows",
+            "title": "WINDOWS"
+        },
+        {
+            "location": "/docker/instalacion/#anadir-usuario-al-group-en-los-linux",
+            "text": "Para poder ejecutar docker tenemos que a\u00f1adir nuestro usuario al grupo, esto es necesario ya que docker se ejecuta a traves de sockets y para escribir y leer el usuario que ejecute docker tiene que tener los privilegios.\nubuntu:  sudo usermod -aG docker <user>  centos  sudo chmod -aG docker <user>",
+            "title": "A\u00f1adir usuario al group en los linux"
+        },
+        {
+            "location": "/docker/imagenes/",
+            "text": "Docker\n\n\nIntroducci\u00f3n\n\n\nLas imagenes son plantillas a partir de las cuales se van a levantar nuestros contenedores, las imagenes son de solo lectura. Las imagenes se guardan en \nrepositorios y estos a su vez en registros. Estos registros pueden estar en local, on premise o en la nube. El registro referencia es el [dockerHUB]https://hub.docker.com.\nLas imagenes a su vez estan etiquetadas con TAGS, estos tags son las versiones de la imagen, si al correr una imagen o descargarla no le indicamos nada nos traeremos la versi\u00f3n latest. Por lo tanto el formato es el siguiente :\n\n/\n:\n\nPrimero buscara en local y si no se ira al docker hub\n\n\nComandos\n\n\nCon la opci\u00f3n --help podemos ver todas las opciones que tienen los comandos.\n\n\nLISTAR\n\n\nEl comando images nos permite ver que imagenes tenemos en local descargadas. \n\n\ndocker images\n\n\n\n\nBORRAR\n\n\nCon el comando rmi borramos las imagens\n\n\nPULL\n\n\nCon este comando me bajo una imagen del registro a local\n\n\nPUSH\n\n\ncon este comando subo una imagen al registro\n\n\nCOMMIT\n\n\nCreo imagenes a partir de un container\n\n\nBUILD\n\n\nConstruyo una imagen a partir de un Dockerfile",
+            "title": "Imagenes"
+        },
+        {
+            "location": "/docker/imagenes/#docker",
+            "text": "",
+            "title": "Docker"
+        },
+        {
+            "location": "/docker/imagenes/#introduccion",
+            "text": "Las imagenes son plantillas a partir de las cuales se van a levantar nuestros contenedores, las imagenes son de solo lectura. Las imagenes se guardan en \nrepositorios y estos a su vez en registros. Estos registros pueden estar en local, on premise o en la nube. El registro referencia es el [dockerHUB]https://hub.docker.com.\nLas imagenes a su vez estan etiquetadas con TAGS, estos tags son las versiones de la imagen, si al correr una imagen o descargarla no le indicamos nada nos traeremos la versi\u00f3n latest. Por lo tanto el formato es el siguiente : / : \nPrimero buscara en local y si no se ira al docker hub",
+            "title": "Introducci\u00f3n"
+        },
+        {
+            "location": "/docker/imagenes/#comandos",
+            "text": "Con la opci\u00f3n --help podemos ver todas las opciones que tienen los comandos.",
+            "title": "Comandos"
+        },
+        {
+            "location": "/docker/imagenes/#listar",
+            "text": "El comando images nos permite ver que imagenes tenemos en local descargadas.   docker images",
+            "title": "LISTAR"
+        },
+        {
+            "location": "/docker/imagenes/#borrar",
+            "text": "Con el comando rmi borramos las imagens",
+            "title": "BORRAR"
+        },
+        {
+            "location": "/docker/imagenes/#pull",
+            "text": "Con este comando me bajo una imagen del registro a local",
+            "title": "PULL"
+        },
+        {
+            "location": "/docker/imagenes/#push",
+            "text": "con este comando subo una imagen al registro",
+            "title": "PUSH"
+        },
+        {
+            "location": "/docker/imagenes/#commit",
+            "text": "Creo imagenes a partir de un container",
+            "title": "COMMIT"
+        },
+        {
+            "location": "/docker/imagenes/#build",
+            "text": "Construyo una imagen a partir de un Dockerfile",
+            "title": "BUILD"
+        },
+        {
+            "location": "/docker/contenedores/",
+            "text": "docker",
+            "title": "Contenedores"
+        },
+        {
+            "location": "/docker/contenedores/#docker",
+            "text": "",
+            "title": "docker"
+        }
+    ]
+}
